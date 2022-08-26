@@ -16,17 +16,18 @@ function App() {
     },
     body: JSON.stringify(
       {
-        "name": "erison",
-        "birth": "1996-03-06",
-        "email": "erison.pimentao@gmail.com",
-        "cep": "69038289",
-        "DDD": "92",
-        "cellphone": "994924319",
-        "street": "Rua Vanderley",
-        "adressNumber": "95",
-        "neighborhood": "Lírio do Vale",
-        "city": "Manaus",
-        "uf": "AM"
+        "name": e.name,
+        "birth": e.birth,
+        "email": e.email,
+        "cep": e.cep,
+        "DDD": e.DDD,
+        "cellphone": e.cellphone,
+        "street": e.street,
+        "house_number": e.address_number,
+        "address_complement": e.address_complement,
+        "district": e.district,
+        "city": e.city,
+        "state": e.state,
       }
     )
 });
@@ -41,6 +42,7 @@ function App() {
         setValue('district', res.data.bairro);
         setValue('city', res.data.localidade);
         setValue('state', res.data.uf);
+        setValue('DDD',res.data.ddd);
         setFocus('cellphone');
       });
     } catch (err) {
@@ -84,11 +86,11 @@ function App() {
       </label>
       <label>
         Número:
-        <input type="text" {...register("adress_number" )} />
+        <input type="text" {...register("address_number" )} />
       </label>
       <label>
         Complemento:
-        <input type="text" {...register("adress_complement" )} />
+        <input type="text" {...register("address_complement" )} />
       </label>
       <label>
         Bairro:
